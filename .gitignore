@@ -1,2 +1,4 @@
 *.pt
 env/
+Input_video/
+Output_video/
