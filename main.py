@@ -1,7 +1,7 @@
-from fastapi import FastAPI,Form
+from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from Algorthim import main
+from Algorithm import main
 
 app = FastAPI()
 
@@ -15,14 +15,10 @@ app.add_middleware(
 )
 
 @app.post("/process-video/")
-async def process_video_endpoint(drive_link: str = Form(...)):
+async def process_video_endpoint(drive_link: str = Form(...)):  # Accept the string directly from the form
     main(drive_link)
     
-    # Serve video with 'inline' disposition, so the browser can display it
-    return FileResponse('Output_video/output_with_full_annotations.mp4', 
-                        media_type="video/mp4", 
-                        filename="output_video.mp4", 
-                        headers={"Content-Disposition": "inline; filename=output_video.mp4"})
+    return FileResponse('Output_video/output_with_full_annotations.mp4', media_type="video/mp4", filename="output_video.mp4")
 
 # if __name__ == "__main__":
 #     import uvicorn
