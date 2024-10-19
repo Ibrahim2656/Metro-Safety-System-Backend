@@ -4,7 +4,7 @@ document.getElementById("videoForm").addEventListener("submit", async function (
     const videoLink = document.getElementById("videoLink").value;
 
     // Send video link to the back-end
-    const response = await fetch('YOUR_BACKEND_ENDPOINT', {
+    const response = await fetch('http://20.83.24.19/process-video', {
         method: 'POST',
         body: JSON.stringify({ url: videoLink }),
         headers: {
