@@ -1,0 +1,44 @@
+/* Set the background for the entire page */
+body {
+    background: url('../assets/images/site-image.jpg') no-repeat center center fixed;
+    background-size: cover;  /* Ensures the image covers the entire background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Keep the container styling */
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Makes the form semi-transparent */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Form input styling */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}

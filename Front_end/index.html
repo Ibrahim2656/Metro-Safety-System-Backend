@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Processing App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Process Your Video</h1>
+
+        <!-- Video element to show the processed video -->
+        <video id="processedVideo" width="100%" controls style="display: none;">
+            Your browser does not support HTML video.
+        </video>
+
+        <!-- Form to submit the video link -->
+        <form id="videoForm">
+            <label for="videoLink">Enter Video URL:</label>
+            <input type="text" id="videoLink" name="videoLink" placeholder="Enter video link" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
