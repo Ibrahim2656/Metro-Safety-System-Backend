@@ -15,7 +15,9 @@ app.add_middleware(
 )
 
 @app.post("/process-video/")
-async def process_video_endpoint(drive_link: str):
+async def process_video_endpoint(drive_link):
+    print(type(drive_link))
+    
     main(drive_link)
     
     return FileResponse('Output_video/output_with_full_annotations.mp4', media_type="video/mp4", filename="output_video.mp4")
