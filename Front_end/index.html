@@ -52,10 +52,10 @@
     <script>
         document.getElementById("processButton").addEventListener("click", async () => {
             const videoLink = document.getElementById("videoLink").value;
-            
+        
             const formData = new URLSearchParams();
-            formData.append("drive_link", videoLink);  // Send the link as a plain form field
-
+            formData.append("drive_link", videoLink);
+        
             const response = await fetch("http://20.83.24.19/process-video/", {
                 method: "POST",
                 headers: {
@@ -63,12 +63,15 @@
                 },
                 body: formData
             });
-
+        
             if (response.ok) {
-                const blob = await response.blob();
-                const url = URL.createObjectURL(blob);
+                const blob = await response.blob();  // Convert the response to a Blob
+                const url = URL.createObjectURL(blob);  // Create a URL for the blob
+        
                 const outputVideo = document.getElementById("outputVideo");
-                outputVideo.src = url;
+                outputVideo.src = url;  // Set the video element's source to the URL
+                outputVideo.load();  // Reload the video element with the new source
+                outputVideo.play();  // Optionally auto-play the video
             } else {
                 console.error("Error processing video:", response.statusText);
                 alert("Failed to process video. Please check the link and try again.");

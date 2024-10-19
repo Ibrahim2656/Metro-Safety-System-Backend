@@ -16,11 +16,13 @@ app.add_middleware(
 
 @app.post("/process-video/")
 async def process_video_endpoint(drive_link: str = Form(...)):
-    print(type(drive_link))
-    
     main(drive_link)
     
-    return FileResponse('Output_video/output_with_full_annotations.mp4', media_type="video/mp4", filename="output_video.mp4")
+    # Serve video with 'inline' disposition, so the browser can display it
+    return FileResponse('Output_video/output_with_full_annotations.mp4', 
+                        media_type="video/mp4", 
+                        filename="output_video.mp4", 
+                        headers={"Content-Disposition": "inline; filename=output_video.mp4"})
 
 # if __name__ == "__main__":
 #     import uvicorn
