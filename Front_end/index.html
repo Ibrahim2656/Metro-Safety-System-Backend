@@ -52,12 +52,16 @@
     <script>
         document.getElementById("processButton").addEventListener("click", async () => {
             const videoLink = document.getElementById("videoLink").value;
+            
+            const formData = new URLSearchParams();
+            formData.append("drive_link", videoLink);  // Send the link as a plain form field
+
             const response = await fetch("http://20.83.24.19/process-video/", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: JSON.stringify({ drive_link: videoLink })
+                body: formData
             });
 
             if (response.ok) {

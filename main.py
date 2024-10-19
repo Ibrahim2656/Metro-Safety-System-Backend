@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from Algorthim import main
@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 @app.post("/process-video/")
-async def process_video_endpoint(drive_link):
+async def process_video_endpoint(drive_link: str = Form(...)):
     print(type(drive_link))
     
     main(drive_link)
